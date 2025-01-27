@@ -13,8 +13,9 @@ RUN npm i
 # Copie du code dans le conteneur
 COPY . .
 
+
 # On expose le port 3000
 EXPOSE 3000
 
 # On lance l'application
-CMD [ "npm", "start" ]
+CMD ["sh", "-c", "npm run db:migrate && npm run start"]
