@@ -1,0 +1,54 @@
+services:
+  # nom du service
+  api:
+    # construction de notre image
+    build:
+      # à partir du répertoire ./api
+      context: ./back
+      # on utilise le fichier Dockerfile.api
+      dockerfile: Dockerfile.api
+    # on expose le port 3000 du conteneur sur notre port 3000
+    ports:
+      - 3000:3000
+    # le service api dépend du service db
+    depends_on:
+      - db
+    # on nomme le conteneur parce qu'on fait les choses proprement
+    container_name: template-react-api
+
+  # nom du service
+  client:
+    # construction de l'image du service
+    build:
+      # à partir du répertoire ./client
+      context: ./front
+      # on utilise le fichier Dockerfile.cli
+      dockerfile: Dockerfile.cli
+    # on expose le port 4173 du conteneur sur notre port 4173
+    ports:
+      - 4173:4173
+    # notre service ne démarre que quand le service api est prêt
+    depends_on:
+      - api
+    # on nomme notre conteneur pour savoir qui il est
+    container_name: template-react-cli
+
+  # nom du service
+  db:
+    # on utilise l'image postgre
+    image: postgres
+    # nom du conteneur
+    container_name: template-react-database
+    # environnement : on déclare les infos nécessaires à notre BDD
+    env_file:
+      - .env
+
+    volumes:
+      # répertoire des scripts d'initialisation
+      - ./back/migrations:/docker-entrypoint-initdb.d
+      # volume de persistance des données
+      - pg-template-react:/var/lib/postgresql/data
+
+# ne pas oublier les volumes de persistance utilisés
+volumes:
+  pg-template-react:

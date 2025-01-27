@@ -1,0 +1,24 @@
+{
+  "name": "template-react",
+  "version": "1.0.0",
+  "description": "template react",
+  "keywords": [
+    "react"
+  ],
+  "license": "ISC",
+  "author": "lebeauq",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm install --prefix back",
+    "start": "npm run start --prefix back",
+    "dev": "concurrently \"npm run dev:back\" \"npm run dev:front\"",
+    "dev:back": "npm run dev --prefix back",
+    "dev:front": "npm run dev --prefix front",
+    "db:create": "npm run db:create --prefix back",
+    "db:seed": "npm run db:seed --prefix back",
+    "db:reset": "npm run db:create && npm run db:seed",
+    "postinstall": "npm install --prefix front --include=dev",
+    "build": "npm run build --prefix front"
+  }
+}
