@@ -1,8 +1,12 @@
 # Node modules
 node_modules/
+./back/node_modules/
+./front/node_modules/
 
 # Build front
 dist/
 
 # Env variables
 .env
+./back/.env
+./front/.env
