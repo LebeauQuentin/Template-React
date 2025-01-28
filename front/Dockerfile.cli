@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY ./package.json ./package-lock.json ./
 
 # On lance NPM pour l'installation des dépendances
-RUN npm i
+RUN npm install
 
 # Copie du code dans le conteneur
 COPY . .

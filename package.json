@@ -1,0 +1,27 @@
+{
+  "name": "template-react-app",
+  "version": "1.0.0",
+  "description": "Template APP avec React.",
+  "keywords": [
+    "",
+    "back",
+    "API REST"
+  ],
+  "license": "ISC",
+  "author": "kanban@oclock.io",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "i:front": "cd ./front && npm install",
+    "i:back": "cd ./back && npm install",
+    "init": "npm run i:front && npm run i:back && npm run dev && npm run dev",
+    "dev": "docker compose up"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

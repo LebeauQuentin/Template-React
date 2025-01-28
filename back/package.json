@@ -8,7 +8,7 @@
     "API REST"
   ],
   "license": "ISC",
-  "author": "kanban@oclock.io",
+  "author": "q.lebeau@oclock.io",
   "type": "module",
   "main": "index.js",
   "directories": {

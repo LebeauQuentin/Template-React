@@ -6,7 +6,7 @@ export function App() {
     <>
       <div>
       
-      <p> Hello World 1 </p>
+      <p> Hello World 2 </p>
 
       </div>
     </>

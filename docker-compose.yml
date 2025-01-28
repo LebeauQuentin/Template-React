@@ -36,7 +36,7 @@ services:
     # on nomme notre conteneur pour savoir qui il est
     container_name: template-react-cli
     volumes:
-      - ./front:/usr/src/app
+      - ./front:/usr/src/app/front
 
   # nom du service
   db:
