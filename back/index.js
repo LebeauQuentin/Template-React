@@ -2,16 +2,21 @@
 import "dotenv/config";
 
 // Import dependencies
+import cookieParser from "cookie-parser";
 import express from "express";
 import cors from "cors";
-import { router } from "./src/router.js";
+import { server } from "./src/config/config-server.js";
+import { router } from "./src/routers/index.router.js";
 import { bodySanitizerMiddleware } from "./src/middlewares/body-sanitizer.js";
+import { logger } from "./src/lib/logger.js";
+import { errorHandler } from "./src/middlewares/error-handler.middleware.js";
 
 // Create app
 const app = express();
 
+//TODO Modification EN PROD
 // Authorize CORS requests 
-app.use(cors(process.env.ALLOWED_DOMAINS || "*")); // * = tous les domaines (pour nous faciliter la vie sur la saison future, mais en pratique, on devrait limiter l'accès à notre API uniquement au front qui va nous appeler !)
+app.use(cors("*"));
 
 // Disable x-powered-by Express header // => ne pas leak des informations sur notre stack technique
 app.disable('x-powered-by');
@@ -20,14 +25,24 @@ app.disable('x-powered-by');
 app.use(express.urlencoded({ extended: true })); // Parser les bodies de type "application/www-form-urlencoded"
 app.use(express.json()); // Parser les bodies de type "application/json"
 
+// Cookie parser
+app.use(cookieParser());
+
+// Static assets
+app.use(express.static("./src/public"));
+
 // Filter out XSS injection from body data
 app.use(bodySanitizerMiddleware);
 
 // Configure routes
 app.use("/api", router);
 
-// Start server
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+// Error middleware
+app.use(errorHandler);
+
+// HTTP server
+const { protocol, port, host } = server; 
+app.listen(port, host, () => {
+  logger.info(`🚀 Server listening on ${protocol}://${host}:${port}`);
 });
+

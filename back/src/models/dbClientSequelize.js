@@ -1,7 +1,8 @@
 import "dotenv/config";
 
 // ECMAScript modules (import)
-import { Sequelize } from "sequelize";
+import { Sequelize } from "./index.model.js";
+import { logger } from "../lib/logger.js";
 
 // ECMAScript modules (export)
 
@@ -13,7 +14,7 @@ export const sequelize = new Sequelize(process.env.PG_URL, {
     updatedAt: "updated_at",
     // underscored: true
   },
-  logging: false // Pour désactiver l'affichage en console des requêtes SQL que Sequelize passe vers la BDD
+  logging: logger.debug.bind(logger)
 });
 
 // Test rapide

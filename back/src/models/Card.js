@@ -1,5 +1,5 @@
 import { DataTypes, Model } from "sequelize";
-import { sequelize } from "./dbClientSequelize.js";
+import { sequelize } from './dbClientSequelize.js';
 
 export class Card extends Model {}
 

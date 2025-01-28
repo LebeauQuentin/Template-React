@@ -1,7 +1,7 @@
 // Idée : se servir de nos modèles Sequelize pour CREER les tables dans la BDD
 // Plutôt que d'utiliser le fichier `create_tables.sql`
 
-import { sequelize } from "../models/index.js";
+import { sequelize } from "../models/index.model.js";
 
 
 console.log("🗑️ Suppression des tables existantes..."); // Notamment pour relancer le script plusieurs fois si on veut faire un reset:db

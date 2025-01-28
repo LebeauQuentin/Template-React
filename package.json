@@ -20,9 +20,5 @@
     "init": "npm run i:front && npm run i:back && npm run dev--build && npm run dev",
     "dev": "docker compose up --build",
     "dev--build": "docker compose up --build"
-  },
-  "dependencies": {
-  },
-  "devDependencies": {
   }
 }

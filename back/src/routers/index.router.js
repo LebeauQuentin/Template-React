@@ -1,6 +1,6 @@
 import { Router } from "express";
-import * as cardController from "./controllers/cardController.js";
-import { controllerWrapper as cw } from "./middlewares/controllerWrapper.js";
+import * as cardController from "../controllers/cardController.js";
+import { controllerWrapper as cw } from "../middlewares/index.middleware.js";
 
 export const router = Router();
 
