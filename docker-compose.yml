@@ -46,7 +46,6 @@ services:
     # environnement : on déclare les infos nécessaires à notre BDD
     env_file:
       - .env
-
     volumes:
       # répertoire des scripts d'initialisation
       - ./back/src/migrations:/docker-entrypoint-initdb.d

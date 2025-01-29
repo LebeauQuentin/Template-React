@@ -10,11 +10,11 @@ User.init({
   lastname: { type: DataTypes.STRING },
   email: { type: DataTypes.STRING, unique: true, allowNull: false },
   password: { type: DataTypes.STRING }
-}, { sequelize });
+}, { sequelize, tableName: "user" });
   
 RefreshToken.init({
   token: { type: DataTypes.STRING },
   expiresAt: { type: DataTypes.DATE },
   userId: { type: DataTypes.INTEGER }
-}, { sequelize });
+}, { sequelize,   tableName: "refreshToken" });
   
