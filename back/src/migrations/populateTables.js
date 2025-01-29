@@ -11,7 +11,7 @@ await Card.create({ content: "Maman le 01/01/1970", position: 1 });
 await Card.create({ content: "Mamie le 01/01/1940", position: 2 });
 await Card.create({ content: "John Doe", position: 1 });
 
-await User.create({ id: 1, firstname: "Annie", lastname: "Zildur", email: "annie.zildur@oclock.io", password: passwordAnnie});
+await User.create({ id: 1, firstname: "Annie", lastname: "Zildur", email: "annie.zildur@oclock.io", password: passwordAnnie, role: 2});
 
 console.log("✅ Migration OK ! Fermeture de la base..."); // On ferme le tunnel de connexion pour que le script s'arrête bien
 await sequelize.close();

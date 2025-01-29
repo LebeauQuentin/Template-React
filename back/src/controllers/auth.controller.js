@@ -27,7 +27,8 @@ export async function registerUser(req, res) {
     firstname,
     lastname,
     email,
-    password: await hash(password)
+    password: await hash(password),
+    role: 1
   });
 
   // Client reponse

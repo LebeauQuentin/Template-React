@@ -1,14 +1,16 @@
-import './App.css'
+import './assets/styles/App.scss'
+import Header from '@components/Header/Header';
+import Footer from '@components/Footer/Footer';
 
 export function App() {
 
   return (
-    <>
-      <div>
-      
-      <p> Hello World 4 </p>
-
-      </div>
-    </>
-  )
+    <div className="app">
+      <Header/>
+      <main className="main">
+        <p> HelloWorld</p>
+      </main>    
+     <Footer />
+    </div>
+);
 }

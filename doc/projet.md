@@ -10,9 +10,9 @@ Description du projet
 
 ### Role
 
-1) Admin
-2) Utilisateurs (connecté)
-3) Visiteurs (non connectés)
+0) Visiteur (non connectés)
+1) Utilisateur (connecté)
+2) Administrateur
 
 ### Tableau User Stories
 
