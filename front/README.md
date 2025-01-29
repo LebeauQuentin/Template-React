@@ -1,3 +1,0 @@
-# FRONT
-
-INDICATION

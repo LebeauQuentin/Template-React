@@ -1,0 +1,20 @@
+# On part d'une image existante
+FROM node:20
+
+# Repertoire de travail dans le conteneur
+WORKDIR /usr/src/app/front
+
+# Copie de package.json et package-lock.json dans le conteneur
+COPY ./package.json ./package-lock.json ./
+
+# On lance NPM pour l'installation des dépendances
+RUN npm install
+
+# Copie du code dans le conteneur
+COPY . .
+
+# On expose le port 5173
+EXPOSE 5173
+
+# On lance l'application
+CMD [ "npm", "run", "dev", "--", "--host" ]

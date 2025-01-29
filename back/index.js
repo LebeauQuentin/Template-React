@@ -14,9 +14,8 @@ import { errorHandler } from "./src/middlewares/error-handler.middleware.js";
 // Create app
 const app = express();
 
-//TODO Modification EN PROD
 // Authorize CORS requests 
-app.use(cors("*"));
+app.use(cors(server.cors));
 
 // Disable x-powered-by Express header // => ne pas leak des informations sur notre stack technique
 app.disable('x-powered-by');
